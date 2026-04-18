@@ -35,7 +35,7 @@ airflow/airflow.cfg
 
 
 # -------------------------------
-# Secrets & Keys (CRITICAL 🚨)
+# Secrets & Keys (CRITICAL )
 # -------------------------------
 *.pem
 *.key

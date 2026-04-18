@@ -35,6 +35,87 @@ An **end-to-end data pipeline** was built to:
 
 ---
 
+## Project Structure
+PTTS/  # Public Transport Ticketing System (Data Engineering Pipeline)
+│
+├── airflow/  
+│   ├── dags/
+│   │   └── ticketing_pipeline_dag.py     # Defines ETL workflow (generate → merge → process → load → analysis)
+│   │
+│   ├── data/
+│   │   ├── raw/
+│   │   │   ├── data1.csv                # Synthetic dataset part 1
+│   │   │   └── data2.csv                # Synthetic dataset part 2
+│   │   │
+│   │   └── processed/
+│   │       ├── merged_data.csv          # Combined dataset (1M rows)
+│   │       └── final_data.csv           # Cleaned + transformed dataset
+│   │
+│   ├── logs/                           # Airflow execution logs (task monitoring)
+│   │
+│   ├── modules/
+│   │   ├── transform.py                # Data transformation (normalization, feature engineering)
+│   │   └── validator.py                # Data validation (nulls, duplicates, anomalies)
+│   │
+│   └── scripts/
+│       ├── generate_data.py            # Generates synthetic ticket data
+│       ├── merge_data.py               # Merges raw datasets
+│       ├── process.py                  # Cleans + validates + transforms data
+│       ├── load_to_db.py               # Loads processed data into DB (PostgreSQL)
+│       └── performance_analysis.py     # Memory + performance benchmarking
+│
+├── api/
+│   └── app.py                          # API layer 
+│
+├── data/
+│   ├── raw/                            # Local raw dataset storage
+│   ├── processed/                      # Local processed dataset
+│   └── star/                           # Star schema data (warehouse-ready)
+│
+├── kafka/
+│   ├── producer.py                     # Simulates real-time ticket data streaming
+│   └── consumer.py                     # Consumes and processes streaming data
+│
+├── modules/
+│   ├── transform.py                    # Reusable transformation functions
+│   └── validator.py                    # Reusable validation logic
+│
+├── pipeline_deploy/                    # Cloud deployment (EC2 version of pipeline)
+│   ├── data/
+│   │   ├── raw/                        # Data used on EC2 instance
+│   │   └── processed/
+│   │
+│   ├── modules/
+│   │   ├── transform.py                # Same transformations for cloud execution
+│   │   └── validator.py
+│   │
+│   └── scripts/
+│       ├── generate_data.py            # Pipeline execution on EC2
+│       ├── merge_data.py
+│       ├── process.py
+│       ├── load_to_db.py               # Loads into PostgreSQL (cloud DB)
+│       └── performance_analysis.py
+│
+├── scripts/
+│   ├── dashboard.py                    # Dashboard (Streamlit/visualization)
+│   ├── star_schema.py                  # Creates star schema (data warehouse design)
+│   ├── generate_data.py                # Standalone data generation
+│   ├── merge_data.py                   # Standalone merging
+│   ├── process.py                      # Standalone processing
+│   ├── load_to_db.py                   # Standalone DB load
+│   └── performance_analysis.py         # Performance metrics
+│
+├── spark/
+│   ├── spark_job.ipynb                 # Spark batch + SQL + streaming analysis
+│  
+│
+├── sql/
+│   └── queries.sql                     # SQL queries (aggregation, ranking, analytics)
+│
+├── requirements.txt                   # Python dependencies
+├── README.md                          # Project documentation
+├── report.pdf                         # Final submission report
+└── test.csv                           # S3 upload/download test file
 
 ##  Features
 
