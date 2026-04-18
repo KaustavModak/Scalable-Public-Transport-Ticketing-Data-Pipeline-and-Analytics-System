@@ -36,6 +36,7 @@ An **end-to-end data pipeline** was built to:
 ---
 
 ## Project Structure
+```bash
 PTTS/  # Public Transport Ticketing System (Data Engineering Pipeline)
 │
 ├── airflow/  
@@ -116,6 +117,7 @@ PTTS/  # Public Transport Ticketing System (Data Engineering Pipeline)
 ├── README.md                          # Project documentation
 ├── report.pdf                         # Final submission report
 └── test.csv                           # S3 upload/download test file
+```
 
 ##  Features
 
