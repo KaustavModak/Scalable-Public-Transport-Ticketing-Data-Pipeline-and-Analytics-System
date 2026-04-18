@@ -1,0 +1,11 @@
+pandas
+numpy
+sqlalchemy
+psycopg2-binary
+fastapi
+uvicorn
+streamlit
+pyspark 
+kafka-python 
+apache-airflow
+mysql-connector-python

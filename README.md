@@ -199,7 +199,7 @@ It integrates modern tools and reflects real-world industry practices.
 ---
 
 ## Note
-The necessary screenshots of the project are pasted in the project report document(repost.pdf)
+The necessary screenshots of the project are pasted in the project report document(report.pdf)
 
 ---
 
